@@ -16,6 +16,9 @@ A tourist website built with Next.js that showcases travel destinations, attract
 - **Destination_Page**: A page dedicated to a specific tourist destination or attraction
 - **Mixed_Media_Gallery**: A unified gallery component that displays photos and videos together in an interleaved layout, rather than separating them into distinct sections
 - **Navigation**: The primary menu system allowing Visitors to move between pages and sections of the Website
+- **Trip_Option**: A curated travel package stored in Sanity_CMS with a name, slug, duration, short and full descriptions, featured image, price, highlights, linked destinations, active status, and display order
+- **Trips_Page**: A listing page that displays all active Trip_Option entries in a card grid
+- **Trip_Detail_Page**: A page dedicated to a specific Trip_Option, showing full description, highlights, price, and linked destinations
 - **Destination_Slug**: A URL-friendly, human-readable string derived from the destination name (e.g., "golden-temple-amritsar") used as the unique identifier in the destination URL path
 - **Shareable_URL**: A permanent, unique URL for a Destination_Page (e.g., /destinations/golden-temple-amritsar) that can be copied and shared, and loads directly to that destination when opened
 
@@ -27,7 +30,7 @@ A tourist website built with Next.js that showcases travel destinations, attract
 
 #### Acceptance Criteria
 
-1. THE Website SHALL render a persistent navigation bar on every page with links to all top-level sections (Home, Destinations, Media, Contact)
+1. THE Website SHALL render a persistent navigation bar on every page with links to all top-level sections (Home, Destinations, Trips, Media, Contact)
 2. WHEN a Visitor selects a navigation link, THE Website SHALL route the Visitor to the corresponding page without a full page reload
 3. THE Website SHALL render a footer on every page containing copyright information and secondary navigation links
 4. WHILE the Website is displayed on a viewport narrower than 768 pixels, THE Website SHALL render the navigation as a collapsible mobile menu
@@ -136,3 +139,31 @@ A tourist website built with Next.js that showcases travel destinations, attract
 6. THE Mixed_Media_Gallery SHALL arrange items based on the display order provided by the Sanity_CMS, preserving the interleaved mix of photos and videos
 7. WHILE the Mixed_Media_Gallery is displayed on a viewport narrower than 768 pixels, THE Mixed_Media_Gallery SHALL render items in a single-column layout
 8. THE Mixed_Media_Gallery SHALL render each item with an accessible label indicating the media type and title
+
+### Requirement 10: Trip Options Listing
+
+**User Story:** As a Visitor, I want to browse available trip packages, so that I can discover curated travel experiences and compare options.
+
+#### Acceptance Criteria
+
+1. WHEN the Trips_Page is loaded, THE Website SHALL fetch all active Trip_Option entries from the Sanity_CMS ordered by display order and render them in a card grid
+2. THE Trips_Page SHALL display each Trip_Option card with the trip name, duration badge, short description, featured image from the Cloudinary_CDN, and price
+3. WHEN a Visitor selects a Trip_Option card, THE Website SHALL navigate the Visitor to the corresponding Trip_Detail_Page at /trips/[slug]
+4. IF the Sanity_CMS is unreachable or returns an error, THEN THE Trips_Page SHALL display a user-friendly error message indicating trips are temporarily unavailable
+5. WHILE content is being fetched from the Sanity_CMS, THE Trips_Page SHALL display a loading indicator to the Visitor
+6. WHEN no active Trip_Option entries exist, THE Trips_Page SHALL display a message indicating no trips are available
+
+### Requirement 11: Trip Detail Pages
+
+**User Story:** As a Visitor, I want to view the full details of a trip package including highlights, price, and linked destinations, so that I can make an informed decision about booking.
+
+#### Acceptance Criteria
+
+1. WHEN a Visitor navigates to a Trip_Detail_Page, THE Website SHALL fetch the Trip_Option by slug from the Sanity_CMS and render the trip name, duration, full description, and price
+2. WHEN the Trip_Option includes highlights, THE Trip_Detail_Page SHALL display the highlights as a list
+3. WHEN the Trip_Option includes linked destinations, THE Trip_Detail_Page SHALL display the linked destinations as a grid of destination cards linking to their respective Destination_Pages
+4. THE Trip_Detail_Page SHALL render Open Graph meta tags (og:title, og:description, og:image, og:url) using the trip name, short description, featured image, and trip URL for rich social sharing previews
+5. THE Trip_Detail_Page SHALL use generateStaticParams to pre-render known trip slugs at build time
+6. IF the slug in the URL does not match any Trip_Option in the Sanity_CMS, THEN THE Website SHALL display a 404 page indicating the trip was not found
+7. THE Trip_Detail_Page SHALL include a back link allowing the Visitor to return to the Trips_Page
+8. IF the Sanity_CMS is unreachable or returns an error, THEN THE Trip_Detail_Page SHALL display a user-friendly error message indicating trip content is temporarily unavailable

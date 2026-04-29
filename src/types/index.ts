@@ -40,6 +40,21 @@ export interface ContactInfo {
   }
 }
 
+export interface TripOption {
+  _id: string
+  name: string
+  slug: { current: string }
+  duration: string
+  shortDescription: string
+  fullDescription: string
+  featuredImage?: CloudinaryMediaRef
+  price?: string
+  highlights?: string[]
+  destinations?: Destination[]
+  isActive: boolean
+  displayOrder?: number
+}
+
 export interface SiteSettings {
   siteName: string
   tagline: string

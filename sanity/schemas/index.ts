@@ -3,6 +3,7 @@ import mediaItem from './mediaItem'
 import destination from './destination'
 import contactInfo from './contactInfo'
 import siteSettings from './siteSettings'
+import tripOption from './tripOption'
 
 export const schemaTypes = [
   cloudinaryMedia,
@@ -10,4 +11,5 @@ export const schemaTypes = [
   destination,
   contactInfo,
   siteSettings,
+  tripOption,
 ]

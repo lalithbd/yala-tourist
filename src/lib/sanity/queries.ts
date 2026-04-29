@@ -28,3 +28,12 @@ export const ALL_MEDIA_QUERY = `*[_type == "destination" && defined(gallery)] {
 export const CONTACT_QUERY = `*[_type == "contactInfo"][0]{
   _id, label, phone, email, address, coordinates
 }`;
+
+export const TRIPS_QUERY = `*[_type == "tripOption" && isActive == true] | order(displayOrder asc) {
+  _id, name, slug, duration, shortDescription, featuredImage, price
+}`;
+
+export const TRIP_BY_SLUG_QUERY = `*[_type == "tripOption" && slug.current == $slug][0]{
+  _id, name, slug, duration, shortDescription, fullDescription, featuredImage, price, highlights, isActive, displayOrder,
+  destinations[]->{ _id, name, slug, shortDescription, featuredImage }
+}`;

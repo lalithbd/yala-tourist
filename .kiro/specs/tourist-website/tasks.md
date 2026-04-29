@@ -14,12 +14,12 @@ Build a Next.js (App Router) tourist website with Sanity CMS for content managem
     - _Requirements: 2.1, 2.2, 8.4_
 
   - [x] 1.2 Create TypeScript interfaces and types
-    - Create `types/index.ts` with `CloudinaryMediaRef`, `MediaItem`, `Destination`, `ContactInfo`, `SiteSettings` interfaces
+    - Create `types/index.ts` with `CloudinaryMediaRef`, `MediaItem`, `Destination`, `ContactInfo`, `SiteSettings`, `TripOption` interfaces
     - _Requirements: 2.1, 2.3_
 
   - [x] 1.3 Create Sanity client and fetch utilities
     - Create `lib/sanity/client.ts` configuring the Sanity client with `next-sanity`
-    - Create `lib/sanity/queries.ts` with all GROQ query constants (`HOME_QUERY`, `DESTINATIONS_QUERY`, `DESTINATION_BY_SLUG_QUERY`, `ALL_MEDIA_QUERY`, `CONTACT_QUERY`)
+    - Create `lib/sanity/queries.ts` with all GROQ query constants (`HOME_QUERY`, `DESTINATIONS_QUERY`, `DESTINATION_BY_SLUG_QUERY`, `ALL_MEDIA_QUERY`, `CONTACT_QUERY`, `TRIPS_QUERY`, `TRIP_BY_SLUG_QUERY`)
     - Create `lib/sanity/fetch.ts` with error-handling wrapper returning `{ data, error }` pattern
     - _Requirements: 2.1, 2.4_
 
@@ -46,7 +46,7 @@ Build a Next.js (App Router) tourist website with Sanity CMS for content managem
 - [x] 3. Implement shared UI components (Navigation, Footer, ErrorPlaceholder, LoadingIndicator)
   - [x] 3.1 Implement Navigation component
     - Create `components/Navigation.tsx` as a client component
-    - Render links to Home, Destinations, Media, Contact using Next.js `<Link>`
+    - Render links to Home, Destinations, Trips, Media, Contact using Next.js `<Link>`
     - Implement responsive behavior: full horizontal nav ≥768px, collapsible hamburger menu <768px
     - _Requirements: 1.1, 1.2, 1.4_
 
@@ -209,7 +209,7 @@ Build a Next.js (App Router) tourist website with Sanity CMS for content managem
     - _Requirements: 8.1, 8.2, 8.3, 8.4_
 
   - [ ]* 10.2 Write unit tests for key components
-    - Test Navigation renders all 4 links and mobile menu toggles
+    - Test Navigation renders all 5 links and mobile menu toggles
     - Test DestinationCard renders name, image, description and links to correct slug URL
     - Test ContactSection renders tel: link, mailto: link, address, map, and fallback message
     - Test Lightbox opens, navigates next/previous, closes on Escape
@@ -225,6 +225,55 @@ Build a Next.js (App Router) tourist website with Sanity CMS for content managem
 
 - [x] 11. Final checkpoint - Ensure all tests pass
   - Ensure all tests pass, ask the user if questions arise.
+
+- [x] 12. Implement Trip Options feature
+  - [x] 12.1 Create tripOption Sanity schema
+    - Create `sanity/schemas/tripOption.ts` document type with fields: name, slug, duration, shortDescription, fullDescription, featuredImage (cloudinaryMedia), price, highlights (array of strings), destinations (array of references to destination), isActive, displayOrder
+    - Register schema in `sanity/schemas/index.ts`
+    - _Requirements: 10.1, 11.1_
+
+  - [x] 12.2 Add TripOption TypeScript interface and GROQ queries
+    - Add `TripOption` interface to `types/index.ts` with all trip fields including optional featuredImage, price, highlights, and destinations
+    - Add `TRIPS_QUERY` to `lib/sanity/queries.ts` fetching all active trip options ordered by display order
+    - Add `TRIP_BY_SLUG_QUERY` to `lib/sanity/queries.ts` fetching single trip by slug with expanded destination references
+    - _Requirements: 10.1, 11.1, 11.3_
+
+  - [x] 12.3 Implement TripCard component
+    - Create `components/TripCard.tsx` as a client component
+    - Props: `name`, `slug`, `duration`, `shortDescription`, `featuredImagePublicId?`, `price?`
+    - Render `CldImage` thumbnail with placeholder fallback, duration badge overlay, trip name, short description, and price
+    - Wrap in `<Link href={/trips/${slug}}>`
+    - _Requirements: 10.2, 10.3_
+
+  - [x] 12.4 Implement Trips listing page
+    - Create `app/trips/page.tsx` as a server component
+    - Fetch all active trip options from Sanity using `TRIPS_QUERY`
+    - Render grid of `TripCard` components
+    - Show error placeholder if Sanity is unreachable
+    - Show "No trips available" message if no active trips exist
+    - Configure ISR with revalidate: 60s
+    - _Requirements: 10.1, 10.2, 10.3, 10.4, 10.6_
+
+  - [x] 12.5 Implement Trip detail page
+    - Create `app/trips/[slug]/page.tsx` as a server component
+    - Fetch single trip by slug from Sanity using `TRIP_BY_SLUG_QUERY`
+    - Use `generateMetadata` to set Open Graph tags (og:title, og:description, og:image, og:url)
+    - Use `generateStaticParams` to pre-render known trip slugs
+    - Render trip name, duration badge, price, full description, highlights list, and linked destination cards
+    - Render back link to `/trips`
+    - Return `notFound()` if slug doesn't match any Sanity record
+    - Show error placeholder if Sanity is unreachable
+    - _Requirements: 11.1, 11.2, 11.3, 11.4, 11.5, 11.6, 11.7, 11.8_
+
+  - [x] 12.6 Update Navigation and Footer with Trips link
+    - Add Trips link to `components/Navigation.tsx` nav links array (between Destinations and Media)
+    - Add Trips link to `components/Footer.tsx` footer links array
+    - _Requirements: 1.1, 10.3_
+
+  - [x] 12.7 Create loading.tsx files for trip routes
+    - Create `app/trips/loading.tsx` rendering `LoadingIndicator` component
+    - Create `app/trips/[slug]/loading.tsx` rendering `LoadingIndicator` component
+    - _Requirements: 10.5, 2.6_
 
 ## Notes
 

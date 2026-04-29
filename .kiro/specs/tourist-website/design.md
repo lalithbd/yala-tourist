@@ -36,6 +36,8 @@ graph TB
             HP[Home Page<br/>/]
             DL[Destinations Listing<br/>/destinations]
             DP[Destination Detail<br/>/destinations/slug]
+            TL[Trips Listing<br/>/trips]
+            TP[Trip Detail<br/>/trips/slug]
             MP[Media Page<br/>/media]
             CP[Contact Page<br/>/contact]
         end
@@ -43,6 +45,7 @@ graph TB
         subgraph "Shared Components"
             NAV[Navigation]
             FT[Footer]
+            TC[TripCard]
             PG[PhotoGallery]
             VP[VideoPlayer]
             MMG[MixedMediaGallery]
@@ -74,6 +77,8 @@ graph TB
 | Destination detail (`/destinations/[slug]`) | ISR (revalidate: 60s) + `generateStaticParams` | Pre-render known slugs, revalidate for updates |
 | Media (`/media`) | ISR (revalidate: 60s) | Media gallery updates occasionally |
 | Contact (`/contact`) | ISR (revalidate: 300s) | Contact info rarely changes |
+| Trips listing (`/trips`) | ISR (revalidate: 60s) | Trip options updated occasionally |
+| Trip detail (`/trips/[slug]`) | ISR (revalidate: 60s) + `generateStaticParams` | Pre-render known slugs, revalidate for updates |
 
 ## Components and Interfaces
 
@@ -110,11 +115,28 @@ graph TB
 - Server component that fetches contact details from Sanity
 - Renders `ContactSection`
 
+#### `TripsListingPage` (`app/trips/page.tsx`)
+- Server component that fetches all active trip options from Sanity ordered by display order
+- Renders a grid of `TripCard` components
+- Each card links to `/trips/[slug]`
+- Shows error placeholder if Sanity is unreachable
+- Shows "No trips available" message if no active trips exist
+- Configured with ISR (revalidate: 60s)
+
+#### `TripDetailPage` (`app/trips/[slug]/page.tsx`)
+- Server component that fetches a single trip option by slug from Sanity
+- Uses `generateMetadata` to set Open Graph tags (og:title, og:description, og:image, og:url)
+- Uses `generateStaticParams` to pre-render known trip slugs
+- Renders trip name, duration badge, price, full description, highlights list, and linked destination cards
+- Renders a back link to `/trips`
+- Returns `notFound()` if slug doesn't match any Sanity record
+- Shows error placeholder if Sanity is unreachable
+
 ### Shared UI Components
 
 #### `Navigation` (`components/Navigation.tsx`)
 - Client component (needs state for mobile menu toggle)
-- Links: Home, Destinations, Media, Contact
+- Links: Home, Destinations, Trips, Media, Contact
 - Responsive: full horizontal nav ≥768px, collapsible hamburger menu <768px
 - Uses Next.js `<Link>` for client-side routing
 
@@ -126,6 +148,13 @@ graph TB
 - Props: `name`, `slug`, `shortDescription`, `featuredImagePublicId`
 - Renders a card with `CldImage` thumbnail, name, short description
 - Wraps in `<Link href={/destinations/${slug}}>`
+
+#### `TripCard` (`components/TripCard.tsx`)
+- Client component (uses `CldImage` from `next-cloudinary`)
+- Props: `name`, `slug`, `duration`, `shortDescription`, `featuredImagePublicId?`, `price?`
+- Renders a card with `CldImage` thumbnail (with placeholder fallback), trip name, short description, duration badge overlay, and price
+- Wraps in `<Link href={/trips/${slug}}>`
+- Image uses responsive sizes and hover scale transition
 
 #### `MixedMediaGallery` (`components/MixedMediaGallery.tsx`)
 - Client component (needs state for filter, lightbox, video player)
@@ -190,6 +219,8 @@ graph TB
   - `DESTINATION_BY_SLUG_QUERY` — fetches single destination with full media gallery
   - `ALL_MEDIA_QUERY` — fetches all media items ordered by display order
   - `CONTACT_QUERY` — fetches contact details
+  - `TRIPS_QUERY` — fetches all active trip options ordered by display order
+  - `TRIP_BY_SLUG_QUERY` — fetches single trip option with expanded destination references
 
 #### `lib/sanity/fetch.ts`
 - Wrapper around `client.fetch()` with error handling
@@ -450,6 +481,88 @@ export default defineType({
 })
 ```
 
+#### `tripOption` Document Type
+
+```ts
+// sanity/schemas/tripOption.ts
+import { defineType, defineField } from 'sanity'
+
+export default defineType({
+  name: 'tripOption',
+  title: 'Trip Option',
+  type: 'document',
+  fields: [
+    defineField({
+      name: 'name',
+      title: 'Name',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: { source: 'name', maxLength: 96 },
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'duration',
+      title: 'Duration',
+      type: 'string',
+      description: 'e.g. "Half Day", "Full Day", "2 Days"',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'shortDescription',
+      title: 'Short Description',
+      type: 'text',
+      rows: 3,
+      validation: (Rule) => Rule.required().max(200),
+    }),
+    defineField({
+      name: 'fullDescription',
+      title: 'Full Description',
+      type: 'text',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'featuredImage',
+      title: 'Featured Image',
+      type: 'cloudinaryMedia',
+    }),
+    defineField({
+      name: 'price',
+      title: 'Price',
+      type: 'string',
+      description: 'e.g. "$50 per person"',
+    }),
+    defineField({
+      name: 'highlights',
+      title: 'Highlights',
+      type: 'array',
+      of: [{ type: 'string' }],
+    }),
+    defineField({
+      name: 'destinations',
+      title: 'Destinations',
+      type: 'array',
+      of: [{ type: 'reference', to: [{ type: 'destination' }] }],
+    }),
+    defineField({
+      name: 'isActive',
+      title: 'Active',
+      type: 'boolean',
+      initialValue: true,
+    }),
+    defineField({
+      name: 'displayOrder',
+      title: 'Display Order',
+      type: 'number',
+    }),
+  ],
+})
+```
+
 ### TypeScript Interfaces (Frontend)
 
 ```ts
@@ -503,6 +616,21 @@ export interface SiteSettings {
   heroBanner: CloudinaryMediaRef
   featuredMedia: MediaItem[]
 }
+
+export interface TripOption {
+  _id: string
+  name: string
+  slug: { current: string }
+  duration: string
+  shortDescription: string
+  fullDescription: string
+  featuredImage?: CloudinaryMediaRef
+  price?: string
+  highlights?: string[]
+  destinations?: Destination[]
+  isActive: boolean
+  displayOrder?: number
+}
 ```
 
 ### Key GROQ Queries
@@ -543,6 +671,17 @@ export interface SiteSettings {
 // Contact info
 *[_type == "contactInfo"][0]{
   _id, label, phone, email, address, coordinates
+}
+
+// All active trips ordered by display order
+*[_type == "tripOption" && isActive == true] | order(displayOrder asc) {
+  _id, name, slug, duration, shortDescription, featuredImage, price
+}
+
+// Single trip by slug with expanded destination references
+*[_type == "tripOption" && slug.current == $slug][0]{
+  _id, name, slug, duration, shortDescription, fullDescription, featuredImage, price, highlights, isActive, displayOrder,
+  destinations[]->{ _id, name, slug, shortDescription, featuredImage }
 }
 ```
 
@@ -601,7 +740,7 @@ export interface SiteSettings {
 | Scenario | Handling | User Experience |
 |----------|----------|-----------------|
 | Sanity API unreachable | `lib/sanity/fetch.ts` catches error, returns `{ data: null, error }` | Page renders `ErrorPlaceholder` with "Content is temporarily unavailable" message |
-| Sanity returns empty result for slug | `notFound()` called in page component | Next.js 404 page: "Destination not found" |
+| Sanity returns empty result for slug | `notFound()` called in page component | Next.js 404 page: "Destination not found" or "Trip not found" |
 | Sanity returns malformed data | TypeScript type guards validate shape; fallback to error state | `ErrorPlaceholder` displayed |
 | Sanity rate limit exceeded | Same as unreachable — caught by fetch wrapper | Same error message; ISR cache serves stale content if available |
 
@@ -631,7 +770,7 @@ A React Error Boundary wraps the main content area to catch unexpected rendering
 
 Unit tests cover specific rendering, interactions, and edge cases:
 
-- **Navigation**: Renders all 4 links; mobile menu toggles at <768px
+- **Navigation**: Renders all 5 links; mobile menu toggles at <768px
 - **Footer**: Renders copyright and secondary links
 - **DestinationCard**: Renders name, image, description; links to correct slug URL
 - **ContactSection**: Renders tel: link, mailto: link, address, map (when coordinates present), fallback message (when data missing)

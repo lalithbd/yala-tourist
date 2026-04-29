@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "seed": "tsx scripts/seed.ts"
+    "seed": "tsx scripts/seed.ts",
+    "upload-media": "tsx scripts/upload-media.ts"
   },
   "keywords": [],
   "author": "",
