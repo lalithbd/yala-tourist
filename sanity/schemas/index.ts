@@ -4,6 +4,7 @@ import destination from './destination'
 import contactInfo from './contactInfo'
 import siteSettings from './siteSettings'
 import tripOption from './tripOption'
+import experience from './experience'
 
 export const schemaTypes = [
   cloudinaryMedia,
@@ -12,4 +13,5 @@ export const schemaTypes = [
   contactInfo,
   siteSettings,
   tripOption,
+  experience,
 ]

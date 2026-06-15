@@ -59,7 +59,7 @@ async function uploadFile(
   fileName: string,
   resourceType: "image" | "video"
 ): Promise<{ publicId: string; url: string }> {
-  const publicId = `${folder}/${fileName}`;
+  const publicId = `tourist/${folder}/${fileName}`;
   const url = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/${resourceType}/upload`;
 
   const fileBuffer = fs.readFileSync(filePath);

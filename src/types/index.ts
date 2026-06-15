@@ -55,6 +55,20 @@ export interface TripOption {
   displayOrder?: number
 }
 
+export interface Experience {
+  _id: string
+  name: string
+  slug: { current: string }
+  shortDescription: string
+  fullDescription: string
+  featuredImage: CloudinaryMediaRef
+  category?: string
+  duration?: string
+  gallery?: MediaItem[]
+  isActive: boolean
+  displayOrder?: number
+}
+
 export interface SiteSettings {
   siteName: string
   tagline: string

@@ -87,7 +87,7 @@ async function seed() {
         "Yala National Park is the most visited and second largest national park in Sri Lanka. It is situated in the southeast region of the country and lies in the Southern and Uva Provinces. The park is best known for its variety of wild animals, including Sri Lankan elephants, leopards, sloth bears, and many species of birds. Yala has the highest leopard density in the world, making it one of the best places on the planet to spot these elusive big cats. The park also features beautiful coastal scenery, sand dunes, freshwater lakes, and ancient Buddhist ruins.",
       featuredImage: {
         _type: "cloudinaryMedia",
-        publicId: "yala/yala-photo-01",
+        publicId: "tourist/yala/yala-photo-03",
         altText: "Yala National Park wildlife",
       },
       gallery: [
@@ -97,7 +97,7 @@ async function seed() {
           mediaType: "photo",
           title: "Yala wildlife scene 1",
           altText: "Wildlife in Yala National Park",
-          cloudinaryPublicId: "yala/yala-photo-02",
+          cloudinaryPublicId: "tourist/yala/yala-photo-02",
           caption: "Wildlife spotted during a Yala safari",
           displayOrder: 1,
         },
@@ -106,8 +106,8 @@ async function seed() {
           _type: "mediaItem",
           mediaType: "photo",
           title: "Yala wildlife scene 2",
-          altText: "Animals in their natural habitat at Yala",
-          cloudinaryPublicId: "yala/yala-photo-03",
+          altText: "Wildlife encounter at Yala",
+          cloudinaryPublicId: "tourist/yala/yala-photo-05",
           caption: "Animals in their natural habitat",
           displayOrder: 2,
         },
@@ -116,9 +116,8 @@ async function seed() {
           _type: "mediaItem",
           mediaType: "photo",
           title: "Yala wildlife scene 3",
-          altText: "Yala National Park scenery",
-          cloudinaryPublicId: "yala/yala-photo-04",
-          caption: "Beautiful scenery at Yala",
+          altText: "Safari experience at Yala",
+          cloudinaryPublicId: "tourist/yala/yala-photo-06",
           displayOrder: 3,
         },
         {
@@ -126,8 +125,8 @@ async function seed() {
           _type: "mediaItem",
           mediaType: "photo",
           title: "Yala wildlife scene 4",
-          altText: "Wildlife encounter at Yala",
-          cloudinaryPublicId: "yala/yala-photo-05",
+          altText: "Nature at Yala National Park",
+          cloudinaryPublicId: "tourist/yala/yala-photo-07",
           displayOrder: 4,
         },
         {
@@ -135,8 +134,8 @@ async function seed() {
           _type: "mediaItem",
           mediaType: "photo",
           title: "Yala wildlife scene 5",
-          altText: "Safari experience at Yala",
-          cloudinaryPublicId: "yala/yala-photo-06",
+          altText: "Yala National Park landscape",
+          cloudinaryPublicId: "tourist/yala/yala-photo-08",
           displayOrder: 5,
         },
         {
@@ -144,8 +143,8 @@ async function seed() {
           _type: "mediaItem",
           mediaType: "photo",
           title: "Yala wildlife scene 6",
-          altText: "Nature at Yala National Park",
-          cloudinaryPublicId: "yala/yala-photo-07",
+          altText: "Yala safari scenery",
+          cloudinaryPublicId: "tourist/yala/yala-photo-09",
           displayOrder: 6,
         },
         {
@@ -154,7 +153,7 @@ async function seed() {
           mediaType: "video",
           title: "Yala safari video 1",
           altText: "Video from Yala safari",
-          cloudinaryPublicId: "yala/yala-video-01",
+          cloudinaryPublicId: "tourist/yala/yala-video-01",
           caption: "Safari experience at Yala",
           displayOrder: 7,
         },
@@ -164,7 +163,7 @@ async function seed() {
           mediaType: "video",
           title: "Yala safari video 2",
           altText: "Wildlife video from Yala",
-          cloudinaryPublicId: "yala/yala-video-02",
+          cloudinaryPublicId: "tourist/yala/yala-video-02",
           displayOrder: 8,
         },
         {
@@ -173,7 +172,7 @@ async function seed() {
           mediaType: "video",
           title: "Yala safari video 3",
           altText: "Animals in motion at Yala",
-          cloudinaryPublicId: "yala/yala-video-03",
+          cloudinaryPublicId: "tourist/yala/yala-video-03",
           displayOrder: 9,
         },
       ],
@@ -191,7 +190,7 @@ async function seed() {
         "Lunugamvehera National Park is located in the southern part of Sri Lanka, adjacent to Yala National Park. Established in 1995, the park serves as a corridor for elephants moving between Yala and Udawalawe national parks. It is known for its large elephant gatherings, especially during the dry season when herds congregate around the Lunugamvehera reservoir. The park is also a haven for birdwatchers with over 180 species recorded. Unlike its more famous neighbor Yala, Lunugamvehera offers a quieter, more intimate wildlife experience.",
       featuredImage: {
         _type: "cloudinaryMedia",
-        publicId: "lunugamvehera",
+        publicId: "tourist/lunugamvehera",
         altText: "Elephant herd at Lunugamvehera National Park",
       },
       gallery: [
@@ -201,7 +200,7 @@ async function seed() {
           mediaType: "photo",
           title: "Elephant gathering",
           altText: "Large elephant herd near the reservoir",
-          cloudinaryPublicId: "lunugamvehera-elephants",
+          cloudinaryPublicId: "tourist/lunugamvehera-elephants",
           caption: "Elephants gathering near the Lunugamvehera reservoir",
           displayOrder: 1,
         },
@@ -220,7 +219,7 @@ async function seed() {
         "Sithulpawwa is an ancient Buddhist monastery situated on a huge rock within the Yala National Park. Dating back to the 2nd century BC, it was once home to over 12,000 monks who sought solitude for meditation. The site features ancient cave temples with well-preserved frescoes, dagobas (stupas), and rock inscriptions. Visitors can climb to the top of the rock for panoramic views of the surrounding jungle and coastline. The monastery remains an active place of worship and pilgrimage, blending spiritual significance with natural beauty and wildlife encounters.",
       featuredImage: {
         _type: "cloudinaryMedia",
-        publicId: "sithulpawwa",
+        publicId: "tourist/sithulpawwa",
         altText: "Sithulpawwa ancient Buddhist monastery on a rock",
       },
       gallery: [
@@ -230,7 +229,7 @@ async function seed() {
           mediaType: "photo",
           title: "Sithulpawwa temple",
           altText: "Ancient temple carved into the rock face",
-          cloudinaryPublicId: "sithulpawwa-temple",
+          cloudinaryPublicId: "tourist/sithulpawwa-temple",
           caption: "The ancient rock temple at Sithulpawwa",
           displayOrder: 1,
         },
@@ -249,7 +248,7 @@ async function seed() {
         "Weheragala is a scenic reservoir area located near Yala National Park in the southern dry zone of Sri Lanka. The reservoir and its surrounding wetlands attract large numbers of elephants, especially during the dry months when water becomes scarce elsewhere. The area is also renowned for its rich birdlife, with numerous water birds, raptors, and forest species. Weheragala offers a tranquil alternative to the busier safari circuits, with opportunities for nature photography, birdwatching, and observing wildlife in an undisturbed setting.",
       featuredImage: {
         _type: "cloudinaryMedia",
-        publicId: "weheragala",
+        publicId: "tourist/weheragala",
         altText: "Weheragala reservoir with elephants",
       },
       gallery: [
@@ -259,7 +258,7 @@ async function seed() {
           mediaType: "photo",
           title: "Weheragala reservoir",
           altText: "Scenic view of Weheragala reservoir at sunset",
-          cloudinaryPublicId: "weheragala-reservoir",
+          cloudinaryPublicId: "tourist/weheragala-reservoir",
           caption: "The peaceful Weheragala reservoir at sunset",
           displayOrder: 1,
         },
@@ -278,7 +277,7 @@ async function seed() {
         "Bundala National Park is an internationally important wintering ground for migratory waterbirds in Sri Lanka. Designated as a Ramsar Wetland of International Importance, the park is located on the southern coast and encompasses a mix of dry thorny scrubland, lagoons, marshes, and sand dunes. Bundala is most famous for hosting large flocks of greater flamingos between September and March. The park is also home to elephants, crocodiles, and over 200 species of birds. Its relatively compact size and diverse habitats make it an excellent destination for birdwatching and nature photography.",
       featuredImage: {
         _type: "cloudinaryMedia",
-        publicId: "bundala/bundala-photo-01",
+        publicId: "tourist/bundala/bundala-photo-01",
         altText: "Bundala National Park scenery",
       },
       gallery: [
@@ -288,7 +287,7 @@ async function seed() {
           mediaType: "photo",
           title: "Bundala scene 1",
           altText: "Wildlife at Bundala National Park",
-          cloudinaryPublicId: "bundala/bundala-photo-02",
+          cloudinaryPublicId: "tourist/bundala/bundala-photo-02",
           caption: "Bundala National Park wildlife",
           displayOrder: 1,
         },
@@ -298,7 +297,7 @@ async function seed() {
           mediaType: "photo",
           title: "Bundala scene 2",
           altText: "Birds at Bundala lagoon",
-          cloudinaryPublicId: "bundala/bundala-photo-03",
+          cloudinaryPublicId: "tourist/bundala/bundala-photo-03",
           caption: "Birdlife at Bundala",
           displayOrder: 2,
         },
@@ -308,7 +307,7 @@ async function seed() {
           mediaType: "photo",
           title: "Bundala scene 3",
           altText: "Bundala wetlands",
-          cloudinaryPublicId: "bundala/bundala-photo-04",
+          cloudinaryPublicId: "tourist/bundala/bundala-photo-04",
           displayOrder: 3,
         },
         {
@@ -317,7 +316,7 @@ async function seed() {
           mediaType: "photo",
           title: "Bundala scene 4",
           altText: "Bundala National Park landscape",
-          cloudinaryPublicId: "bundala/bundala-photo-05",
+          cloudinaryPublicId: "tourist/bundala/bundala-photo-05",
           displayOrder: 4,
         },
         {
@@ -326,7 +325,7 @@ async function seed() {
           mediaType: "photo",
           title: "Bundala scene 5",
           altText: "Nature at Bundala",
-          cloudinaryPublicId: "bundala/bundala-photo-06",
+          cloudinaryPublicId: "tourist/bundala/bundala-photo-06",
           displayOrder: 5,
         },
         {
@@ -335,7 +334,7 @@ async function seed() {
           mediaType: "photo",
           title: "Bundala scene 6",
           altText: "Bundala coastal scenery",
-          cloudinaryPublicId: "bundala/bundala-photo-07",
+          cloudinaryPublicId: "tourist/bundala/bundala-photo-07",
           displayOrder: 6,
         },
       ],
@@ -361,7 +360,7 @@ async function seed() {
         tagline: "Explore Sri Lanka's wild southern coast",
         heroBanner: {
           _type: "cloudinaryMedia",
-          publicId: "bundala/bundala-photo-06",
+          publicId: "tourist/bundala/bundala-photo-06",
           altText: "Yala National Park wildlife safari",
         },
         featuredMedia: [
@@ -371,7 +370,7 @@ async function seed() {
             mediaType: "photo",
             title: "Yala wildlife",
             altText: "Wildlife at Yala National Park",
-            cloudinaryPublicId: "yala/yala-photo-09",
+            cloudinaryPublicId: "tourist/yala/yala-photo-09",
             displayOrder: 1,
           },
           {
@@ -380,7 +379,7 @@ async function seed() {
             mediaType: "photo",
             title: "Yala scenery",
             altText: "Beautiful scenery at Yala",
-            cloudinaryPublicId: "yala/yala-photo-10",
+            cloudinaryPublicId: "tourist/yala/yala-photo-10",
             displayOrder: 2,
           },
           {
@@ -389,7 +388,7 @@ async function seed() {
             mediaType: "photo",
             title: "Bundala nature",
             altText: "Nature at Bundala National Park",
-            cloudinaryPublicId: "bundala/bundala-photo-05",
+            cloudinaryPublicId: "tourist/bundala/bundala-photo-05",
             displayOrder: 3,
           },
           {
@@ -398,7 +397,7 @@ async function seed() {
             mediaType: "video",
             title: "Yala safari experience",
             altText: "Safari video from Yala",
-            cloudinaryPublicId: "yala/yala-video-04",
+            cloudinaryPublicId: "tourist/yala/yala-video-04",
             displayOrder: 4,
           },
         ],
@@ -406,6 +405,45 @@ async function seed() {
     },
   ]);
   console.log("  ✓ Site settings created");
+
+  // 4. Experiences
+  console.log("Creating experiences...");
+  await mutate([
+    {
+      createOrReplace: {
+        _id: "exp-gami-gedara",
+        _type: "experience",
+        name: "Gami Gedara",
+        slug: { _type: "slug", current: "gami-gedara" },
+        shortDescription:
+          "Immerse yourself in rich local culture with a guided village tour featuring clay pot making, cow milking, and a traditional Sri Lankan house.",
+        fullDescription:
+          "Immerse yourself in the rich local culture and traditions with our guided village tour. Explore the heart of the community and witness age-old craftsmanship as you observe skilled artisans creating clay pots. Engage with adorable cow infants, learn the art of milking cows, and gain a deeper understanding of rural life. As you visit a traditional house known as the 'Gami Gedara,' you'll step back in time, surrounded by historical Sri Lankan kitchen items that offer insights into the culinary heritage of the region. Our village tour promises an authentic and enlightening experience, allowing you to connect with the soul of Sri Lanka's countryside during your stay at Saffron Lake Yala Hotel.",
+        category: "Cooking",
+        duration: "Half Day",
+        featuredImage: {
+          _type: "cloudinaryMedia",
+          publicId: "tourist/gami-gedara/gami-gedara",
+          altText: "Traditional Gami Gedara village house experience",
+        },
+        gallery: [
+          {
+            _key: "gg-photo-1",
+            _type: "mediaItem",
+            mediaType: "photo",
+            title: "Gami Gedara village tour",
+            altText: "Traditional village house and cultural experience",
+            cloudinaryPublicId: "tourist/gami-gedara/gami-gedara",
+            caption: "The traditional Gami Gedara experience",
+            displayOrder: 1,
+          },
+        ],
+        isActive: true,
+        displayOrder: 1,
+      },
+    },
+  ]);
+  console.log("  ✓ Gami Gedara experience created");
 
   console.log("\n✅ Seed complete! Your content is now in Sanity.");
   console.log(

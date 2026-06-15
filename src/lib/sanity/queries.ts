@@ -37,3 +37,13 @@ export const TRIP_BY_SLUG_QUERY = `*[_type == "tripOption" && slug.current == $s
   _id, name, slug, duration, shortDescription, fullDescription, featuredImage, price, highlights, isActive, displayOrder,
   destinations[]->{ _id, name, slug, shortDescription, featuredImage }
 }`;
+
+export const EXPERIENCES_QUERY = `*[_type == "experience" && isActive == true] | order(displayOrder asc) {
+  _id, name, slug, shortDescription, category, duration, featuredImage
+}`;
+
+export const EXPERIENCE_BY_SLUG_QUERY = `*[_type == "experience" && slug.current == $slug][0]{
+  _id, name, slug, shortDescription, fullDescription, category, duration,
+  featuredImage,
+  gallery[] | order(displayOrder asc)
+}`;
