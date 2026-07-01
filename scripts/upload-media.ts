@@ -70,7 +70,7 @@ async function uploadFile(
 
   // Generate signature
   const crypto = await import("crypto");
-  const signatureStr = `overwrite=true&public_id=${publicId}&timestamp=${timestamp}${API_SECRET}`;
+  const signatureStr = `overwrite=true&public_id=${publicId}&timestamp=${timestamp}&unique_filename=false${API_SECRET}`;
   const signature = crypto.createHash("sha1").update(signatureStr).digest("hex");
 
   const formData = new URLSearchParams();
@@ -80,6 +80,7 @@ async function uploadFile(
   formData.append("api_key", API_KEY!);
   formData.append("signature", signature);
   formData.append("overwrite", "true");
+  formData.append("unique_filename", "false");
 
   const res = await fetch(url, {
     method: "POST",

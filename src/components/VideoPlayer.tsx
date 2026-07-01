@@ -48,10 +48,6 @@ export default function VideoPlayer({
         height="1080"
         src={publicId}
         autoplay={false}
-        sourceTypes={["hls"]}
-        transformation={{
-          streaming_profile: "auto",
-        }}
         onError={() => setHasError(true)}
         {...(thumbnailPublicId ? { poster: thumbnailPublicId } : {})}
       />
