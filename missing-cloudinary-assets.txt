@@ -1,0 +1,91 @@
+# Cloudinary Assets - Upload Guide
+# Upload these to your Cloudinary account with the exact public IDs listed below.
+# Format: public_id | type | source file suggestion
+
+# =============================================================================
+# YALA NATIONAL PARK (data/yala/)
+# =============================================================================
+# Featured image (already exists):
+# tourist/yala/yala-photo-03
+
+# Gallery photos — upload from data/yala/ files:
+tourist/yala/yala-photo-01          | image | PHOTO-2026-04-30-16-36-49.jpg
+tourist/yala/yala-photo-02          | image | PHOTO-2026-04-30-16-36-50.jpg
+tourist/yala/yala-photo-05          | image | PHOTO-2026-04-30-16-36-52.jpg
+tourist/yala/yala-photo-06          | image | PHOTO-2026-04-30-16-36-53.jpg
+tourist/yala/yala-photo-07          | image | PHOTO-2026-04-30-16-36-54.jpg
+tourist/yala/yala-photo-08          | image | PHOTO-2026-04-30-16-36-55.jpg
+tourist/yala/yala-photo-09          | image | PHOTO-2026-04-30-16-36-56.jpg
+tourist/yala/yala-photo-10          | image | PHOTO-2026-04-30-16-36-57.jpg
+tourist/yala/yala-photo-11          | image | PHOTO-2026-04-30-16-36-58.jpg
+tourist/yala/yala-photo-12          | image | PHOTO-2026-04-30-16-36-59.jpg
+tourist/yala/yala-photo-13          | image | PHOTO-2026-04-30-16-36-60.jpg
+tourist/yala/yala-photo-14          | image | PHOTO-2026-04-30-16-36-61.jpg
+tourist/yala/yala-photo-15          | image | PHOTO-2026-04-30-16-36-62.jpg
+tourist/yala/yala-video-01          | video | WhatsApp Video 2026-06-19 at 5.17.33 PM.mp4
+
+# =============================================================================
+# LUNUGAMVEHERA (data/lunugamwehera/)
+# =============================================================================
+tourist/lunugamvehera/lunugamvehera-photo-01  | image | Lunugamvehera.jpg
+tourist/lunugamvehera/lunugamvehera-photo-02  | image | lunu.jpg
+
+# =============================================================================
+# SITHULPAWWA (data/sithulpawwa/)
+# =============================================================================
+tourist/sithulpawwa/sithulpawwa-photo-01  | image | sithulpawwa1 copy.webp
+tourist/sithulpawwa/sithulpawwa-photo-02  | image | sithulpawwa2 copy.jpg
+
+# =============================================================================
+# WEHERAGALA (data/weheragala/)
+# =============================================================================
+tourist/weheragala/weheragala-photo-01  | image | PHOTO-2026-06-19-16-30-58.jpg
+tourist/weheragala/weheragala-photo-02  | image | PHOTO-2026-06-19-16-30-59.jpg
+tourist/weheragala/weheragala-photo-03  | image | PHOTO-2026-06-19-16-30-60.jpg
+tourist/weheragala/weheragala-photo-04  | image | PHOTO-2026-06-19-16-30-61.jpg
+tourist/weheragala/weheragala-photo-05  | image | PHOTO-2026-06-19-16-30-62.jpg
+tourist/weheragala/weheragala-photo-06  | image | PHOTO-2026-06-19-16-31-00.jpg
+tourist/weheragala/weheragala-photo-07  | image | PHOTO-2026-06-19-16-31-00-1.jpg
+tourist/weheragala/weheragala-photo-08  | image | PHOTO-2026-06-19-16-31-00-2.jpg
+tourist/weheragala/weheragala-photo-09  | image | PHOTO-2026-06-19-16-31-01.jpg
+tourist/weheragala/weheragala-photo-10  | image | PHOTO-2026-06-19-16-31-01-1.jpg
+
+# =============================================================================
+# GAMI GEDARA EXPERIENCE (data/experience/gami-gedara/)
+# =============================================================================
+# Photos:
+tourist/gami-gedara/gami-gedara-01      | image | PHOTO-2026-06-19-22-03-20.jpg
+tourist/gami-gedara/gami-gedara-02      | image | PHOTO-2026-06-19-22-03-32.jpg
+tourist/gami-gedara/gami-gedara-03      | image | PHOTO-2026-06-19-22-03-35.jpg
+tourist/gami-gedara/gami-gedara-04      | image | PHOTO-2026-06-19-22-03-37.jpg
+tourist/gami-gedara/gami-gedara-05      | image | PHOTO-2026-06-19-22-03-39.jpg
+tourist/gami-gedara/gami-gedara-06      | image | PHOTO-2026-06-19-22-03-46.jpg
+tourist/gami-gedara/gami-gedara-07      | image | PHOTO-2026-06-19-22-03-50.jpg
+tourist/gami-gedara/gami-gedara-08      | image | PHOTO-2026-06-19-22-03-54.jpg
+tourist/gami-gedara/gami-gedara-09      | image | PHOTO-2026-06-19-22-04-04.jpg
+tourist/gami-gedara/gami-gedara-10      | image | PHOTO-2026-06-19-22-04-08.jpg
+tourist/gami-gedara/gami-gedara-11      | image | PHOTO-2026-06-19-22-04-09.jpg
+tourist/gami-gedara/gami-gedara-12      | image | PHOTO-2026-06-19-22-04-10.jpg
+tourist/gami-gedara/gami-gedara-13      | image | PHOTO-2026-06-19-22-04-13.jpg
+
+# Videos:
+tourist/gami-gedara/gami-gedara-video-01  | video | VIDEO-2026-06-19-22-02-48.mp4
+tourist/gami-gedara/gami-gedara-video-02  | video | VIDEO-2026-06-19-22-03-17.mp4
+tourist/gami-gedara/gami-gedara-video-03  | video | VIDEO-2026-06-19-22-03-18.mp4
+tourist/gami-gedara/gami-gedara-video-04  | video | VIDEO-2026-06-19-22-03-23.mp4
+tourist/gami-gedara/gami-gedara-video-05  | video | VIDEO-2026-06-19-22-03-26.mp4
+tourist/gami-gedara/gami-gedara-video-06  | video | VIDEO-2026-06-19-22-03-34.mp4
+tourist/gami-gedara/gami-gedara-video-07  | video | VIDEO-2026-06-19-22-04-14.mp4
+tourist/gami-gedara/gami-gedara-video-08  | video | VIDEO-2026-06-19-22-04-16.mp4
+tourist/gami-gedara/gami-gedara-video-09  | video | VIDEO-2026-06-19-22-04-17.mp4
+
+# =============================================================================
+# BUNDALA (already uploaded - no action needed)
+# =============================================================================
+# tourist/bundala/bundala-photo-01 through 07 — all exist ✓
+
+# =============================================================================
+# HOME PAGE (site settings)
+# =============================================================================
+# Uses: yala-photo-09, yala-photo-05, bundala-photo-05, weheragala-photo-01, yala-video-01
+# Hero banner: bundala-photo-06 — already exists ✓
