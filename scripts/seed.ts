@@ -56,10 +56,10 @@ async function seed() {
         _id: "contact-main",
         _type: "contactInfo",
         label: "Tourist Information Center",
-        phone: "+94-11-2345678",
+        phone: "+94742398210",
         email: "info@touristsite.com",
-        address: "123 Beach Road\nColombo 03\nSri Lanka",
-        coordinates: { _type: "geopoint", lat: 6.9271, lng: 79.8612 },
+        address: "No 104, Sithulpawwa Road\nTissamaharama\nSri Lanka",
+        coordinates: { _type: "geopoint", lat: 6.2833, lng: 81.2833 },
       },
     },
   ]);

@@ -35,12 +35,14 @@ export default function ContactSection({ contact }: ContactSectionProps) {
       <div className="space-y-3">
         {phone && (
           <div className="flex items-start gap-2">
-            <span className="text-gray-400" aria-hidden="true">📞</span>
+            <span className="text-gray-400" aria-hidden="true">💬</span>
             <a
-              href={`tel:${phone}`}
-              className="text-blue-600 hover:text-blue-800 hover:underline"
+              href={`https://wa.me/${phone.replace(/[^0-9]/g, "")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-green-600 hover:text-green-800 hover:underline"
             >
-              {phone}
+              WhatsApp: {phone}
             </a>
           </div>
         )}

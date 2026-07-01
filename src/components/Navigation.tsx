@@ -23,9 +23,9 @@ export default function Navigation() {
   return (
     <nav aria-label="Main navigation" className="bg-white shadow-sm">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
+        <div className="flex h-20 items-center justify-between">
           <Link href="/" className="text-xl font-bold text-gray-900">
-            Tourist
+            Visit Downsouth Sri Lanka
           </Link>
 
           {/* Desktop navigation */}
