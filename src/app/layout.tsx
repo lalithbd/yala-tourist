@@ -8,9 +8,38 @@ import "./globals.css";
 const adsenseId = process.env.NEXT_PUBLIC_ADSENSE_ID;
 
 export const metadata: Metadata = {
-  title: "Tourist Website",
+  metadataBase: new URL("https://yala-tourist.vercel.app"),
+  title: {
+    default: "Yala Safari Tours — Explore Sri Lanka's Wild Southern Coast",
+    template: "%s | Yala Safari Tours",
+  },
   description:
-    "Discover amazing travel destinations, explore stunning photos and videos, and plan your next adventure.",
+    "Discover Yala National Park, Bundala, and more. Safari tours, wildlife experiences, and cultural adventures in southern Sri Lanka.",
+  keywords: [
+    "Yala National Park",
+    "Sri Lanka safari",
+    "wildlife tours",
+    "Bundala",
+    "Lunugamvehera",
+    "Sri Lanka travel",
+    "leopard safari",
+    "birdwatching Sri Lanka",
+  ],
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    siteName: "Yala Safari Tours",
+    title: "Yala Safari Tours — Explore Sri Lanka's Wild Southern Coast",
+    description:
+      "Discover Yala National Park, Bundala, and more. Safari tours, wildlife experiences, and cultural adventures in southern Sri Lanka.",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({

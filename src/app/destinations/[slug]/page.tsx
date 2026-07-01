@@ -102,9 +102,32 @@ export default async function DestinationDetailPage({ params }: PageProps) {
         Back to Destinations
       </Link>
 
-      <h1 className="mb-4 text-4xl font-bold text-gray-900">
-        {destination.name}
-      </h1>
+      <div className="mb-4 flex flex-wrap items-center gap-4">
+        <h1 className="text-4xl font-bold text-gray-900">
+          {destination.name}
+        </h1>
+        <Link
+          href={`/trips#${destination.slug.current}`}
+          className="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow transition-colors hover:bg-blue-700"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-4 w-4"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M13 7l5 5m0 0l-5 5m5-5H6"
+            />
+          </svg>
+          Safari Packages
+        </Link>
+      </div>
 
       <p className="mb-8 whitespace-pre-line text-lg text-gray-700">
         {destination.fullDescription}

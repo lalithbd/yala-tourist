@@ -3,7 +3,7 @@ import Link from "next/link";
 const footerLinks = [
   { href: "/", label: "Home" },
   { href: "/destinations", label: "Destinations" },
-  { href: "/trips", label: "Trips" },
+  { href: "/trips", label: "Safari" },
   { href: "/experiences", label: "Experiences" },
   { href: "/media", label: "Media" },
   { href: "/contact", label: "Contact" },

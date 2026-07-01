@@ -30,7 +30,8 @@ export const CONTACT_QUERY = `*[_type == "contactInfo"][0]{
 }`;
 
 export const TRIPS_QUERY = `*[_type == "tripOption" && isActive == true] | order(displayOrder asc) {
-  _id, name, slug, duration, shortDescription, featuredImage, price
+  _id, name, slug, duration, shortDescription, featuredImage, price,
+  "destinations": destinations[]{ _ref }
 }`;
 
 export const TRIP_BY_SLUG_QUERY = `*[_type == "tripOption" && slug.current == $slug][0]{

@@ -58,7 +58,7 @@ async function seed() {
         label: "Tourist Information Center",
         phone: "+94742398210",
         email: "info@touristsite.com",
-        address: "No 104, Sithulpawwa Road\nTissamaharama\nSri Lanka",
+        address: "No 187, Sithulpawwa Road\nYodakandiya\nTissamaharama\nSri Lanka",
         coordinates: { _type: "geopoint", lat: 6.2833, lng: 81.2833 },
       },
     },
@@ -737,6 +737,412 @@ async function seed() {
     },
   ]);
   console.log("  ✓ Gami Gedara experience created");
+
+  // 5. Trip Packages (Safari)
+  console.log("Creating safari packages...");
+
+  // Delete old trips
+  await mutate([
+    { delete: { id: "trip-yala-safari" } },
+    { delete: { id: "trip-lunugamvehera-safari" } },
+    { delete: { id: "trip-weheragala-safari" } },
+    { delete: { id: "trip-bundala-safari" } },
+    { delete: { id: "trip-sithulpawwa-heritage" } },
+    { delete: { id: "trip-yala-full-day" } },
+    { delete: { id: "trip-yala-morning-4hrs" } },
+    { delete: { id: "trip-yala-morning-7hrs" } },
+    { delete: { id: "trip-yala-afternoon" } },
+    { delete: { id: "trip-weheragala-full-day" } },
+    { delete: { id: "trip-weheragala-morning-4hrs" } },
+    { delete: { id: "trip-weheragala-morning-7hrs" } },
+    { delete: { id: "trip-weheragala-afternoon" } },
+    { delete: { id: "trip-lunugamvehera-full-day" } },
+    { delete: { id: "trip-lunugamvehera-morning-4hrs" } },
+    { delete: { id: "trip-lunugamvehera-morning-7hrs" } },
+    { delete: { id: "trip-lunugamvehera-afternoon" } },
+    { delete: { id: "trip-bundala-morning" } },
+    { delete: { id: "trip-bundala-afternoon" } },
+    { delete: { id: "trip-sithulpawwa-morning" } },
+    { delete: { id: "trip-sithulpawwa-afternoon" } },
+  ]);
+
+  const trips = [
+    // === YALA SAFARI (Large) ===
+    {
+      _id: "trip-yala-full-day",
+      _type: "tripOption",
+      name: "Yala Safari — Full Day",
+      slug: { _type: "slug", current: "yala-safari-full-day" },
+      duration: "Full Day (4:30AM – 6:00PM)",
+      shortDescription:
+        "The ultimate Yala experience. A full day exploring Sri Lanka's premier wildlife sanctuary with lunch included. Recommended.",
+      fullDescription:
+        "Spend an entire day immersed in the wild beauty of Yala National Park. Starting at dawn when animals are most active, your experienced safari driver — who is also your tracker — will guide you through the park's diverse landscapes. Enjoy a traditional Sri Lankan rice and curry lunch in a scenic spot, along with fruits, soft drinks, and water throughout the day. This is our recommended package for the most comprehensive Yala experience.",
+      highlights: [
+        "All Inclusive",
+        "Private Luxury Safari Jeep",
+        "Experienced Safari Driver (also your tracker)",
+        "All taxes & entrance tickets",
+        "Free hotel pickup and drop off (around the Yala area)",
+        "Soft drinks and water",
+        "Fruits",
+        "Sri Lankan Rice and Curry lunch",
+      ],
+      destinations: [{ _type: "reference", _ref: "dest-yala" }],
+      isActive: true,
+      displayOrder: 1,
+    },
+    {
+      _id: "trip-yala-morning-4hrs",
+      _type: "tripOption",
+      name: "Yala Safari — Morning 4hrs",
+      slug: { _type: "slug", current: "yala-safari-morning-4hrs" },
+      duration: "Morning (4:30AM – 10:00AM)",
+      shortDescription:
+        "A focused 4-hour morning safari at Yala during peak wildlife activity hours.",
+      fullDescription:
+        "Catch the best wildlife action during the early morning hours when animals are most active. This 4-hour safari starts at dawn and takes you through Yala's prime wildlife zones. Your experienced safari driver doubles as your tracker, ensuring the best sightings of leopards, elephants, and birdlife.",
+      highlights: [
+        "All Inclusive",
+        "Private Luxury Safari Jeep",
+        "Experienced Safari Driver (also your tracker)",
+        "All taxes & entrance tickets",
+        "Free hotel pickup and drop off (around the Yala area)",
+        "Soft drinks and water",
+      ],
+      destinations: [{ _type: "reference", _ref: "dest-yala" }],
+      isActive: true,
+      displayOrder: 2,
+    },
+    {
+      _id: "trip-yala-morning-7hrs",
+      _type: "tripOption",
+      name: "Yala Safari — Morning 7hrs",
+      slug: { _type: "slug", current: "yala-safari-morning-7hrs" },
+      duration: "Morning (4:30AM – 12:00PM)",
+      shortDescription:
+        "An extended 7-hour morning safari at Yala with fruits included for a deeper wildlife experience.",
+      fullDescription:
+        "An extended morning safari that gives you more time to explore Yala's vast terrain. Starting at dawn, you'll cover more ground and have better chances of spotting elusive wildlife. Fruits are provided along with soft drinks and water to keep you refreshed throughout the adventure.",
+      highlights: [
+        "All Inclusive",
+        "Private Luxury Safari Jeep",
+        "Experienced Safari Driver (also your tracker)",
+        "All taxes & entrance tickets",
+        "Free hotel pickup and drop off (around the Yala area)",
+        "Soft drinks and water",
+        "Fruits",
+      ],
+      destinations: [{ _type: "reference", _ref: "dest-yala" }],
+      isActive: true,
+      displayOrder: 3,
+    },
+    {
+      _id: "trip-yala-afternoon",
+      _type: "tripOption",
+      name: "Yala Safari — Afternoon",
+      slug: { _type: "slug", current: "yala-safari-afternoon" },
+      duration: "Afternoon (2:00PM – 6:00PM)",
+      shortDescription:
+        "An afternoon safari at Yala, perfect for catching wildlife in the golden evening light.",
+      fullDescription:
+        "Experience Yala in the beautiful afternoon light when animals emerge from their midday rest. This safari is ideal for photographers and those who prefer a later start. Watch elephants at watering holes and predators beginning their evening hunt as the golden hour sets in.",
+      highlights: [
+        "All Inclusive",
+        "Private Luxury Safari Jeep",
+        "Experienced Safari Driver (also your tracker)",
+        "All taxes & entrance tickets",
+        "Free hotel pickup and drop off (around the Yala area)",
+        "Soft drinks and water",
+      ],
+      destinations: [{ _type: "reference", _ref: "dest-yala" }],
+      isActive: true,
+      displayOrder: 4,
+    },
+
+    // === WEHERAGALA SAFARI (Large — same as Yala) ===
+    {
+      _id: "trip-weheragala-full-day",
+      _type: "tripOption",
+      name: "Weheragala Safari — Full Day",
+      slug: { _type: "slug", current: "weheragala-safari-full-day" },
+      duration: "Full Day (4:30AM – 6:00PM)",
+      shortDescription:
+        "A full day at Weheragala's serene reservoir, spotting elephants and birdlife with lunch included. Recommended.",
+      fullDescription:
+        "Spend an entire day exploring the tranquil wilderness of Weheragala, where a scenic reservoir draws elephants, water birds, and diverse wildlife to its shores. Starting at dawn, your experienced safari driver — who is also your tracker — will guide you through the area's diverse habitats. Enjoy a traditional Sri Lankan rice and curry lunch, along with fruits, soft drinks, and water throughout the day.",
+      highlights: [
+        "All Inclusive",
+        "Private Luxury Safari Jeep",
+        "Experienced Safari Driver (also your tracker)",
+        "All taxes & entrance tickets",
+        "Free hotel pickup and drop off (around the Yala area)",
+        "Soft drinks and water",
+        "Fruits",
+        "Sri Lankan Rice and Curry lunch",
+      ],
+      destinations: [{ _type: "reference", _ref: "dest-weheragala" }],
+      isActive: true,
+      displayOrder: 5,
+    },
+    {
+      _id: "trip-weheragala-morning-4hrs",
+      _type: "tripOption",
+      name: "Weheragala Safari — Morning 4hrs",
+      slug: { _type: "slug", current: "weheragala-safari-morning-4hrs" },
+      duration: "Morning (4:30AM – 10:00AM)",
+      shortDescription:
+        "A focused 4-hour morning safari at Weheragala during peak wildlife activity hours.",
+      fullDescription:
+        "Catch the best wildlife action at Weheragala during the early morning hours. This 4-hour safari starts at dawn and takes you along the reservoir's edge where elephants come to drink and water birds are most active. Your experienced safari driver doubles as your tracker.",
+      highlights: [
+        "All Inclusive",
+        "Private Luxury Safari Jeep",
+        "Experienced Safari Driver (also your tracker)",
+        "All taxes & entrance tickets",
+        "Free hotel pickup and drop off (around the Yala area)",
+        "Soft drinks and water",
+      ],
+      destinations: [{ _type: "reference", _ref: "dest-weheragala" }],
+      isActive: true,
+      displayOrder: 6,
+    },
+    {
+      _id: "trip-weheragala-morning-7hrs",
+      _type: "tripOption",
+      name: "Weheragala Safari — Morning 7hrs",
+      slug: { _type: "slug", current: "weheragala-safari-morning-7hrs" },
+      duration: "Morning (4:30AM – 12:00PM)",
+      shortDescription:
+        "An extended 7-hour morning safari at Weheragala with fruits included for a deeper nature experience.",
+      fullDescription:
+        "An extended morning at Weheragala gives you more time to explore the reservoir area and surrounding wetlands. Starting at dawn, you'll observe elephants, raptors, and diverse birdlife in their undisturbed habitat. Fruits are provided along with soft drinks and water.",
+      highlights: [
+        "All Inclusive",
+        "Private Luxury Safari Jeep",
+        "Experienced Safari Driver (also your tracker)",
+        "All taxes & entrance tickets",
+        "Free hotel pickup and drop off (around the Yala area)",
+        "Soft drinks and water",
+        "Fruits",
+      ],
+      destinations: [{ _type: "reference", _ref: "dest-weheragala" }],
+      isActive: true,
+      displayOrder: 7,
+    },
+    {
+      _id: "trip-weheragala-afternoon",
+      _type: "tripOption",
+      name: "Weheragala Safari — Afternoon",
+      slug: { _type: "slug", current: "weheragala-safari-afternoon" },
+      duration: "Afternoon (2:00PM – 6:00PM)",
+      shortDescription:
+        "An afternoon safari at Weheragala, perfect for golden-hour photography by the reservoir.",
+      fullDescription:
+        "Experience Weheragala in the beautiful afternoon light. This safari is ideal for nature photography as elephants gather at the reservoir and water birds return to roost. The golden hour creates stunning conditions for capturing wildlife and landscapes.",
+      highlights: [
+        "All Inclusive",
+        "Private Luxury Safari Jeep",
+        "Experienced Safari Driver (also your tracker)",
+        "All taxes & entrance tickets",
+        "Free hotel pickup and drop off (around the Yala area)",
+        "Soft drinks and water",
+      ],
+      destinations: [{ _type: "reference", _ref: "dest-weheragala" }],
+      isActive: true,
+      displayOrder: 8,
+    },
+
+    // === LUNUGAMVEHERA SAFARI (Large — same as Yala) ===
+    {
+      _id: "trip-lunugamvehera-full-day",
+      _type: "tripOption",
+      name: "Lunugamvehera Safari — Full Day",
+      slug: { _type: "slug", current: "lunugamvehera-safari-full-day" },
+      duration: "Full Day (4:30AM – 6:00PM)",
+      shortDescription:
+        "A full day at Lunugamvehera, witnessing large elephant herds at the reservoir with lunch included. Recommended.",
+      fullDescription:
+        "Spend an entire day in the tranquil Lunugamvehera National Park, a hidden gem bordering Yala that serves as a vital elephant corridor. Starting at dawn, your experienced safari driver — who is also your tracker — will take you through diverse habitats where large elephant herds congregate. Enjoy a traditional Sri Lankan rice and curry lunch, along with fruits, soft drinks, and water throughout the day.",
+      highlights: [
+        "All Inclusive",
+        "Private Luxury Safari Jeep",
+        "Experienced Safari Driver (also your tracker)",
+        "All taxes & entrance tickets",
+        "Free hotel pickup and drop off (around the Yala area)",
+        "Soft drinks and water",
+        "Fruits",
+        "Sri Lankan Rice and Curry lunch",
+      ],
+      destinations: [{ _type: "reference", _ref: "dest-lunugamvehera" }],
+      isActive: true,
+      displayOrder: 9,
+    },
+    {
+      _id: "trip-lunugamvehera-morning-4hrs",
+      _type: "tripOption",
+      name: "Lunugamvehera Safari — Morning 4hrs",
+      slug: { _type: "slug", current: "lunugamvehera-safari-morning-4hrs" },
+      duration: "Morning (4:30AM – 10:00AM)",
+      shortDescription:
+        "A focused 4-hour morning safari at Lunugamvehera during peak elephant activity.",
+      fullDescription:
+        "Catch the best elephant sightings during the early morning hours at Lunugamvehera. This 4-hour safari starts at dawn when herds gather near the reservoir. Your experienced safari driver doubles as your tracker, ensuring intimate wildlife encounters without the crowds.",
+      highlights: [
+        "All Inclusive",
+        "Private Luxury Safari Jeep",
+        "Experienced Safari Driver (also your tracker)",
+        "All taxes & entrance tickets",
+        "Free hotel pickup and drop off (around the Yala area)",
+        "Soft drinks and water",
+      ],
+      destinations: [{ _type: "reference", _ref: "dest-lunugamvehera" }],
+      isActive: true,
+      displayOrder: 10,
+    },
+    {
+      _id: "trip-lunugamvehera-morning-7hrs",
+      _type: "tripOption",
+      name: "Lunugamvehera Safari — Morning 7hrs",
+      slug: { _type: "slug", current: "lunugamvehera-safari-morning-7hrs" },
+      duration: "Morning (4:30AM – 12:00PM)",
+      shortDescription:
+        "An extended 7-hour morning at Lunugamvehera with fruits, for a deeper elephant and birdwatching experience.",
+      fullDescription:
+        "An extended morning safari that gives you more time to explore Lunugamvehera's vast terrain and observe its famous elephant gatherings. With over 180 bird species, there's always something to spot. Fruits are provided along with soft drinks and water.",
+      highlights: [
+        "All Inclusive",
+        "Private Luxury Safari Jeep",
+        "Experienced Safari Driver (also your tracker)",
+        "All taxes & entrance tickets",
+        "Free hotel pickup and drop off (around the Yala area)",
+        "Soft drinks and water",
+        "Fruits",
+      ],
+      destinations: [{ _type: "reference", _ref: "dest-lunugamvehera" }],
+      isActive: true,
+      displayOrder: 11,
+    },
+    {
+      _id: "trip-lunugamvehera-afternoon",
+      _type: "tripOption",
+      name: "Lunugamvehera Safari — Afternoon",
+      slug: { _type: "slug", current: "lunugamvehera-safari-afternoon" },
+      duration: "Afternoon (2:00PM – 6:00PM)",
+      shortDescription:
+        "An afternoon safari at Lunugamvehera, ideal for watching elephants gather in the evening light.",
+      fullDescription:
+        "Experience Lunugamvehera in the peaceful afternoon when elephant herds move towards the reservoir. This safari is perfect for those who prefer a later start, offering excellent opportunities to observe wildlife behavior in the golden evening light.",
+      highlights: [
+        "All Inclusive",
+        "Private Luxury Safari Jeep",
+        "Experienced Safari Driver (also your tracker)",
+        "All taxes & entrance tickets",
+        "Free hotel pickup and drop off (around the Yala area)",
+        "Soft drinks and water",
+      ],
+      destinations: [{ _type: "reference", _ref: "dest-lunugamvehera" }],
+      isActive: true,
+      displayOrder: 12,
+    },
+
+    // === BUNDALA SAFARI (Small) ===
+    {
+      _id: "trip-bundala-morning",
+      _type: "tripOption",
+      name: "Bundala Safari — Morning",
+      slug: { _type: "slug", current: "bundala-safari-morning" },
+      duration: "Morning (4:30AM – 10:00AM)",
+      shortDescription:
+        "A morning safari to the Ramsar wetland sanctuary, famous for flamingos and 200+ bird species.",
+      fullDescription:
+        "Explore Bundala National Park in the cool morning hours when birdlife is at its most active. This Ramsar Wetland of International Importance hosts spectacular flocks of flamingos (seasonal), over 200 bird species, and diverse wildlife. Your experienced safari driver doubles as your tracker through the park's lagoons, marshes, and sand dunes.",
+      highlights: [
+        "All Inclusive",
+        "Private Luxury Safari Jeep",
+        "Experienced Safari Driver (also your tracker)",
+        "All taxes & entrance tickets",
+        "Free hotel pickup and drop off (around the Yala area)",
+        "Soft drinks and water",
+      ],
+      destinations: [{ _type: "reference", _ref: "dest-bundala" }],
+      isActive: true,
+      displayOrder: 13,
+    },
+    {
+      _id: "trip-bundala-afternoon",
+      _type: "tripOption",
+      name: "Bundala Safari — Afternoon",
+      slug: { _type: "slug", current: "bundala-safari-afternoon" },
+      duration: "Afternoon (2:00PM – 6:00PM)",
+      shortDescription:
+        "An afternoon safari at Bundala, perfect for catching waterbirds and flamingos in the evening light.",
+      fullDescription:
+        "Experience Bundala National Park in the afternoon when waterbirds flock to the lagoons and the light is perfect for photography. This Ramsar Wetland sanctuary offers intimate encounters with flamingos, elephants, and crocodiles. Your experienced safari driver doubles as your tracker through this compact yet diverse park.",
+      highlights: [
+        "All Inclusive",
+        "Private Luxury Safari Jeep",
+        "Experienced Safari Driver (also your tracker)",
+        "All taxes & entrance tickets",
+        "Free hotel pickup and drop off (around the Yala area)",
+        "Soft drinks and water",
+      ],
+      destinations: [{ _type: "reference", _ref: "dest-bundala" }],
+      isActive: true,
+      displayOrder: 14,
+    },
+
+    // === SITHULPAWWA SAFARI (Small — same as Bundala) ===
+    {
+      _id: "trip-sithulpawwa-morning",
+      _type: "tripOption",
+      name: "Sithulpawwa Safari — Morning",
+      slug: { _type: "slug", current: "sithulpawwa-safari-morning" },
+      duration: "Morning (4:30AM – 10:00AM)",
+      shortDescription:
+        "A morning safari to the ancient 2,000-year-old Buddhist monastery perched on a rock within Yala.",
+      fullDescription:
+        "Journey to Sithulpawwa in the cool morning hours, combining a wildlife safari with a visit to one of Sri Lanka's most ancient Buddhist monasteries. Dating back to the 2nd century BC, the monastery sits atop a massive rock with panoramic views. Your experienced safari driver doubles as your tracker through the jungle trails, where wildlife encounters are common.",
+      highlights: [
+        "All Inclusive",
+        "Private Luxury Safari Jeep",
+        "Experienced Safari Driver (also your tracker)",
+        "All taxes & entrance tickets",
+        "Free hotel pickup and drop off (around the Yala area)",
+        "Soft drinks and water",
+      ],
+      destinations: [{ _type: "reference", _ref: "dest-sithulpawwa" }],
+      isActive: true,
+      displayOrder: 15,
+    },
+    {
+      _id: "trip-sithulpawwa-afternoon",
+      _type: "tripOption",
+      name: "Sithulpawwa Safari — Afternoon",
+      slug: { _type: "slug", current: "sithulpawwa-safari-afternoon" },
+      duration: "Afternoon (2:00PM – 6:00PM)",
+      shortDescription:
+        "An afternoon safari to Sithulpawwa, combining wildlife spotting with ancient heritage in golden light.",
+      fullDescription:
+        "Visit Sithulpawwa in the afternoon when the golden light illuminates the ancient rock monastery beautifully. The jungle trail offers wildlife encounters with peacocks, monkeys, and other animals. Climb to the summit for panoramic views of the surrounding jungle and coastline at sunset. Your experienced safari driver doubles as your tracker.",
+      highlights: [
+        "All Inclusive",
+        "Private Luxury Safari Jeep",
+        "Experienced Safari Driver (also your tracker)",
+        "All taxes & entrance tickets",
+        "Free hotel pickup and drop off (around the Yala area)",
+        "Soft drinks and water",
+      ],
+      destinations: [{ _type: "reference", _ref: "dest-sithulpawwa" }],
+      isActive: true,
+      displayOrder: 16,
+    },
+  ];
+
+  for (const trip of trips) {
+    await mutate([{ createOrReplace: trip }]);
+    console.log(`  ✓ ${trip.name}`);
+  }
 
   console.log("\n✅ Seed complete! Your content is now in Sanity.");
   console.log(
