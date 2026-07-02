@@ -65,8 +65,8 @@ export default async function TripsListingPage() {
                       slug={trip.slug.current}
                       duration={trip.duration}
                       shortDescription={trip.shortDescription}
-                      featuredImagePublicId={trip.featuredImage?.publicId}
-                      price={trip.price}
+                      highlights={trip.highlights}
+                      destinationSlug={slug}
                     />
                   ))}
                 </div>
