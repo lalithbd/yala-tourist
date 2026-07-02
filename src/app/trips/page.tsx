@@ -22,7 +22,7 @@ function groupTripsByDestination(trips: TripOption[]) {
     // Use the first destination reference ID to group
     const destId = (trip as unknown as { destinations?: { _ref: string }[] })
       .destinations?.[0]?._ref;
-    const section = destId && DESTINATION_SECTIONS[destId];
+    const section = destId ? DESTINATION_SECTIONS[destId] : undefined;
     const key = section?.slug ?? "other";
 
     if (!groups[key]) groups[key] = [];
