@@ -2,6 +2,7 @@ export const HOME_QUERY = `*[_type == "siteSettings"][0]{
   siteName,
   tagline,
   heroBanner,
+  heroImages,
   featuredMedia
 }`;
 

@@ -478,6 +478,38 @@ async function seed() {
           publicId: "tourist/bundala/bundala-photo-06",
           altText: "Yala National Park wildlife safari",
         },
+        heroImages: [
+          {
+            _key: "hero-1",
+            _type: "cloudinaryMedia",
+            publicId: "tourist/bundala/bundala-photo-06",
+            altText: "Birds at Bundala National Park",
+          },
+          {
+            _key: "hero-2",
+            _type: "cloudinaryMedia",
+            publicId: "tourist/yala/yala-photo-03",
+            altText: "Wildlife at Yala National Park",
+          },
+          {
+            _key: "hero-3",
+            _type: "cloudinaryMedia",
+            publicId: "tourist/yala/yala-photo-09",
+            altText: "Yala safari scenery",
+          },
+          {
+            _key: "hero-4",
+            _type: "cloudinaryMedia",
+            publicId: "tourist/bundala/bundala-photo-05",
+            altText: "Nature at Bundala",
+          },
+          {
+            _key: "hero-5",
+            _type: "cloudinaryMedia",
+            publicId: "tourist/yala/yala-photo-07",
+            altText: "Yala National Park landscape",
+          },
+        ],
         featuredMedia: [
           {
             _key: "fm-1",

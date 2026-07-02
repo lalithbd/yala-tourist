@@ -73,5 +73,6 @@ export interface SiteSettings {
   siteName: string
   tagline: string
   heroBanner: CloudinaryMediaRef
+  heroImages?: CloudinaryMediaRef[]
   featuredMedia: MediaItem[]
 }

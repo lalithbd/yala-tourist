@@ -57,7 +57,7 @@ export default async function TripsListingPage() {
                 <h2 className="mb-6 text-2xl font-semibold text-gray-900">
                   {label}
                 </h2>
-                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
                   {sectionTrips.map((trip) => (
                     <TripCard
                       key={trip._id}

@@ -30,6 +30,7 @@ export default async function HomePage() {
       ) : (
         <HeroBanner
           heroBanner={settings?.heroBanner}
+          heroImages={settings?.heroImages}
           siteName={settings?.siteName}
           tagline={settings?.tagline}
         />
