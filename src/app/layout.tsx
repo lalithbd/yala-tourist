@@ -9,7 +9,7 @@ const adsenseId = process.env.NEXT_PUBLIC_ADSENSE_ID;
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://yala-tourist.vercel.app"),
-  verification: {google : "eZp7PiiaSdYpLkSPu06DBPnCZLpsCWV96jUCkGlW9u4"}
+  verification: {google : "eZp7PiiaSdYpLkSPu06DBPnCZLpsCWV96jUCkGlW9u4"},
   title: {
     default: "Yala Safari Tours — Explore Sri Lanka's Wild Southern Coast",
     template: "%s | Yala Safari Tours",
